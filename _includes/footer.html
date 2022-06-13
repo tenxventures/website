@@ -1,0 +1,91 @@
+<div class="primary-color">
+  <div class="hiring-title-div">
+    <span class="hiring-title" style="color:white">Let's set a meeting !</span>
+  </div>
+  <div class="text-center" style="padding-bottom: 60px;">
+    <a class="typeform-share button fill-form-btn yellow-btn" 
+      href="https://calendly.com/tenxadvisor/15mins" data-mode="drawer_right"
+      style="display:inline-block;text-decoration:none;cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:50px;text-align:center;margin:0;height:50px;padding:0px 33px;border-radius:25px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;"
+      target="_blank">Book a meeting</a>
+
+  </div>
+
+</div>
+
+<!--------------------- Chatbox ---------------------------->
+
+<div class="chatbox">
+  <button class="chatbox-btn" id="chatboxBtn"><i class="fas fa-comment"></i></button>
+  <form class="form hidden" name="email-capture" data-netlify="true" method="POST">
+    <span id="cancel"><i class="fas fa-times"></i></span><br>
+    <div class="hidden success">
+      <p class="success-msg">Thanks for filling the form. Your form has been submitted successfully.</p>
+    </div>
+    <input type="hidden" name="subject" value="TenX Advisory - new form submission received"/>
+    <label class="form-label" for="name">Your Name<input required
+            id="name"
+            name="user-name"
+            placeholder="Please enter your name..."
+            class="form-control"
+            type="text"></label>
+    <label  class="form-label" for="email">Your Email<input required
+            id="email"
+            name="user-email"
+            class="form-control"
+            placeholder="Please enter your email id..."
+            type="email"></label>
+    <label class="form-label">Message<textarea required
+            id="message"
+            name="message"
+            placeholder="Your message for us..."
+            class="form-control"></textarea></label>
+    <br>
+    <button class="btn" id="submit" type="submit">Send Message</button>
+  </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+<script>
+    const chatBoxBtn = document.getElementById('chatboxBtn');
+    const chatBoxForm = document.querySelector('.form');
+    const cancelBtn = document.getElementById('cancel');
+
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      let formData = new FormData(chatBoxForm)
+      fetch('/', {
+        method: 'POST',
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString()
+      }).then(() => {
+          document.querySelectorAll('.form-label').forEach((label) => {
+              label.classList.add('hidden');
+          });
+          document.querySelector('.success').classList.remove('hidden');
+          document.getElementById('submit').textContent= "OK";
+      }).catch((error) =>
+        alert(error));
+    }
+
+    function displayForm() {
+        chatBoxForm.classList.remove('hidden');
+        chatBoxBtn.classList.add('hidden');
+    }
+
+    function hideForm() {
+            chatBoxForm.classList.add('hidden');
+            chatBoxBtn.classList.remove('hidden');
+    }
+
+    chatBoxBtn.addEventListener('click', displayForm);
+    cancelBtn.addEventListener('click', hideForm);
+    chatBoxForm.addEventListener('submit', handleSubmit);
+    document.getElementById('submit').addEventListener('click', (e) =>{
+        if(e.target.textContent === "OK"){
+          e.preventDefault();
+          hideForm();
+        }
+    });
+
+</script>

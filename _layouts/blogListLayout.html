@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include head.html %}
+  <body>
+    {% include nav.html %}
+    <div class="featured-blogs">
+      <div class="container my-5">
+        <h2 class="featured-heading"><b>Featured</b></h2>
+        <hr />
+        <!--FIRST ROW OF THE GRID-->
+        <div class="row my-4">
+          {% for blog in site.blogs %}
+          {%if blog.featured_blog == true %}
+          <div class="col-md-6 mb-3">
+            
+              <div class="card rounded-0">
+                <div class="row g-0">
+                  {% if blog.banner_image != "" %}
+                  <div class="col-sm-5">
+					<a
+					href="{{blog.url | absolute_url}}"
+				  > <div
+                      class="banner-image"
+                      style="width:100%;height:100%;background:url('{{blog.banner_image | absolute_url}}');background-size:cover;background-position:center;"
+                    ></div>
+					</a>
+                  </div>
+                  {% endif %}
+                  <div
+                    class='
+                      {%
+                      if
+                      blog.banner_image!=
+                      ""
+                      %}col-sm-7
+                      {%
+                      else
+                      %}
+                      col
+                      no-img{%endif
+                      %}
+                    '
+                  ><a
+				  class="container-link"
+				  href="{{blog.url | absolute_url}}"
+				>
+                    <div class="card-body">
+                      <h3
+                        class="card-title"
+                        style="
+                          color: black;
+                          font-weight: 700;
+                          font-size: 20.8px;
+                        "
+                      >
+                        {{blog.heading}}
+                      </h3>
+                      <div class="card-text">
+                        {{blog.content}}
+						
+                      </div>
+					</a>
+
+					<div class="metafooter">
+						<div class="wrapfooter">
+						<span class="author-meta" style="font-size: 12px;">
+						<span class="post-name"><a href="{{blog.url | absolute_url}}" style="color: black;">{{blog.author}}</a></span><br/>
+																<span class="post-date" style="color:grey;"><time datetime="{{ blog.date }}">{{ blog.date | date: "%Y-%m-%d" }}</time></span>
+						</span>
+					</div>
+					</div>
+					 
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="all-stories">
+      <!--Main content Grid-->
+      <div class="container">
+        <h2 class="all-stories-heading"><b>Stories</b></h2>
+        <hr />
+        <!--FIRST ROW OF THE GRID-->
+        <div class="row my-4">
+          {% for blog in site.blogs %}
+
+          <div class="col-md-6 mb-3">
+           
+              <div class="card rounded-0">
+                <div class="row g-0">
+                  {% if blog.banner_image!= "" %}
+                  <div class="col-sm-5">
+					<a
+					href="{{blog.url | absolute_url}}"
+				  > <div
+                      class="banner-image"
+                      style="width:100%;height:100%;background:url('{{blog.banner_image | absolute_url}}');background-repeat:no-repeat;background-size:cover;background-position:center;"
+                    ></div></a>
+                  </div>
+                  {% endif %}
+                  <div
+                    class='
+                      {%
+                      if
+                      blog.banner_image!=
+                      ""
+                      %}col-sm-7{%
+                      else
+                      %}
+                      col
+                      no-img{%endif
+                      %}
+                    '
+                  >
+				  <a
+				  class="container-link"
+				  href="{{blog.url | absolute_url}}"
+				>
+                    <div class="card-body">
+                      <h3
+                        class="card-title"
+                        style="
+                          color: black;
+                          font-weight: 700;
+                          font-size: 20.8px;
+                        "
+                      >
+					
+                        {{blog.heading}}
+                      </h3>
+                      <div class="card-text">
+                        {{ blog.content}}
+                      </div></a>
+					  <div class="metafooter">
+						<div class="wrapfooter">
+						<span class="author-meta" style="font-size: 12px;">
+						<span class="post-name"><a href="{{blog.url | absolute_url}}" style="color: black;">{{blog.author}}</a></span><br/>
+																<span class="post-date" style="color:grey;"><time datetime="{{ blog.date }}">{{ blog.date | date: "%Y-%m-%d" }}</time></span>
+						</span>
+						</div>
+					</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    {% include footer.html %}
+  </body>
+</html>

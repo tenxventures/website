@@ -1,0 +1,12 @@
+permalink: "/:path/"
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "blogLayout"
+collections:
+   blogs:
+    output: true
+    permalink: "/blogList/:path/"   
+    sort_by: "serial_number" 
+     

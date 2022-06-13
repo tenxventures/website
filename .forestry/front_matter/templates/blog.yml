@@ -1,0 +1,33 @@
+---
+label: blog
+hide_body: false
+fields:
+- type: text
+  name: title
+  label: Tab title
+- type: text
+  name: heading
+  label: Heading
+- type: number
+  name: serial_number
+  label: Serial Number for Ordering
+- type: file
+  name: banner_image
+  label: image for blog page
+- type: text
+  name: layout
+  label: layout
+  hidden: true
+  default: blogLayout
+- type: text
+  name: author
+  label: author's name
+- name: featured_blog
+  type: boolean
+  label: featured blog
+pages:
+- _blogs/bookkeeping-1.md
+- _blogs/bookkeeping.md
+- _blogs/kuwait-1.md
+- _blogs/kuwait-bookkeeping.md
+- _blogs/kuwait.md
