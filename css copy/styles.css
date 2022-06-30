@@ -21,7 +21,7 @@ html {
 		background: linear-gradient(to right, #02021d 0%, #02021d 75%, #00b7f7 75%, #00b7f7 100%);
 	}
 	.left-margin {
-		margin-left: 72px;
+		margin-left: 65px;
 	}
 }
 
@@ -108,7 +108,7 @@ html {
   
   label * {
 	margin-top: 0.5rem;
-	margin-bottom: 0.8rem;
+	margin-bottom: 0.9rem;
   }
   
   .form-control {
@@ -156,12 +156,12 @@ body {
 h2 {
 	color: white;
 	font-weight: 800;
-	font-size: 70px;
+	font-size: 60px;
 }
 
 @media screen and (max-width: 1366px) {
 	h2 {
-		font-size: 48px;
+		font-size: 39px;
 	}
 }
 @media screen and (max-width: 700px) {
@@ -186,8 +186,8 @@ h3 {
 }
 
 .top {
-	height: 100vh;
-	margin-bottom: 300px;
+	height: 110vh;
+	margin-bottom: 200px;
 }
 @media screen and (max-width: 1000px) {
 	.top {
@@ -229,11 +229,11 @@ nav {
 .head-ellipse {
 	background-image: url(../images/Ellipse.png);
 	padding: 10px;
-	padding-top: 10px;
+	padding-top: 9px;
 	text-align: right;
 	padding-right: 27px;
 	padding-bottom: 11px;
-	padding-left: 28px;
+	padding-left: 25px;
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -275,7 +275,7 @@ div a {
 .testimonial-card {
 	border-radius: 20px;
 	box-sizing: border-box;
-	height: 700px;
+	height: 550px;
 }
 
 .testimonial-card:hover {
@@ -292,7 +292,7 @@ div a {
 	color: #ffffff;
 }
 .testimonial-desc {
-	font-size: 18px;
+	font-size: 14px;
 	font-family: 'Montserrat', sans-serif;
 	color: #dadadb;
 }
